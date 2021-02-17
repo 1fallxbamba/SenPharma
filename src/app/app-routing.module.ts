@@ -11,6 +11,26 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'pharmacies',
+    loadChildren: () => import('./core/pages/pharmacies/pharmacies.module').then( m => m.PharmaciesPageModule)
+  },
+  {
+    path: 'pharmacy/:name',
+    loadChildren: () => import('./core/pages/pharmacy/pharmacy.module').then( m => m.PharmacyPageModule)
+  },
+  {
+    path: 'search-drug',
+    loadChildren: () => import('./core/pages/search-drug/search-drug.module').then( m => m.SearchDrugPageModule)
+  },
+  {
+    path: 'search-pharmacy',
+    loadChildren: () => import('./core/pages/search-pharmacy/search-pharmacy.module').then( m => m.SearchPharmacyPageModule)
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('./core/pages/contact/contact.module').then( m => m.ContactPageModule)
+  },
 ];
 
 @NgModule({

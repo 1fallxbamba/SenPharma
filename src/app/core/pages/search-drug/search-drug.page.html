@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar class="ion-bg-main">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Recherche de médicament </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-bg-main">
+
+  <div class="input-wrapper">
+
+    <ion-item>
+
+      <ion-input
+      [(ngModel)]="searchTerm"
+      (ionChange)="search()"
+       placeholder="Nom du médicament" >
+
+      </ion-input>
+
+    </ion-item>
+
+  </div>
+  
+
+  <div *ngIf="found && drugData.name !== ''"  class="result">
+
+    <em> Résultat : <span>{{drugData.name}} </span> </em>
+
+    <p>Disponible dans les pharmacies suivantes</p>
+
+  </div>
+
+
+  <div>
+
+    <ion-list style="background: transparent;">
+
+      <ion-card *ngFor="let phcy of drugData.whereAvailable">
+        <ion-item routerLink="/pharmacy/{{phcy}}">
+          <ion-label> {{phcy}} </ion-label>
+
+        </ion-item>
+      </ion-card>
+
+  </ion-list>
+
+  </div>
+
+
+
+
+</ion-content>

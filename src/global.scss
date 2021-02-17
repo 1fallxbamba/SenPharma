@@ -24,3 +24,64 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+* {
+    font-family: 'Oxygen', sans-serif;
+}
+
+ion-title,
+ion-back-button {
+    color: white;
+}
+
+.ios ion-searchbar {
+    --color: white;
+    --icon-color: white;
+}
+
+.md ion-segment {
+    ion-segment-button {
+        --color: white;
+        font-weight: 600;
+    }
+}
+
+.ios ion-segment {
+    ion-segment-button {
+        --color: white;
+        --color-checked: black;
+        font-weight: 600;
+    }
+}
+
+.ion-bg-main {
+    --background: url(assets/bg.jpg) fixed; // Image credit : Photo by Rozan Naufal on Unsplash
+}
+
+.html-bg-main {
+    background: url(assets/bg.jpg); // Image credit : Photo by Rozan Naufal on Unsplash
+}
+
+.centerImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 20%;
+    margin-bottom: auto;
+}
+
+.label-open {
+    color: green;
+    font-style: normal;
+}
+
+.label-closed {
+    color: red;
+    font-style: normal;
+}
+
+.label-guard {
+    color: orange;
+    font-style: normal;
+}

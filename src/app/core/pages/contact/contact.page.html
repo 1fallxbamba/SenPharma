@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar class="ion-bg-main">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-bg-main">
+
+  <ion-item style="--background: transparent; color: white; margin-top: 5px">
+    <p style="text-align: center;" >
+      Contacter le développeur pour faire part de votre expérience d'utilisation ou signaler un quelconque problème
+    </p>
+  </ion-item>
+
+  <div class="form-wrapper">
+
+  <ion-list>
+
+    <form method="POST" #messageForm="ngForm">
+
+        <ion-item>
+            <ion-label color="dark" floating>Votre nom : </ion-label>
+            <ion-input 
+            type="text"
+            name="uname"
+            required
+            clearInput
+            autofocus
+            [(ngModel)]="message.name"
+            #uname="ngModel"> 
+          </ion-input>
+
+          </ion-item>
+        
+
+
+          <ion-item>
+              <ion-label color="dark" floating>Adresse email : </ion-label>
+              <ion-input
+              type="email"
+              name="mail"
+              required
+              clearInput
+              [(ngModel)]="message.email"
+              #email="ngModel">
+            </ion-input>
+            </ion-item>
+
+            
+
+              <ion-item>
+                  <ion-label color="dark" floating>Message : </ion-label>
+                  <ion-textarea
+                  type="text"
+                  name="msg"
+                  required
+                  [(ngModel)]="message.content"
+                  #msg="ngModel"> 
+
+                  </ion-textarea>
+                </ion-item>
+
+
+                <ion-button  
+                style="--background: #312D79;"
+                expand="block"
+                expand="block"
+                (click)="newMessage()"
+                type="submit"
+                [disabled]="!messageForm.form.valid">
+                  <ion-icon slot="start" name="send"></ion-icon>
+                  Envoyer
+                </ion-button>
+
+    </form>
+        
+  </ion-list>
+
+</div>
+
+
+</ion-content>

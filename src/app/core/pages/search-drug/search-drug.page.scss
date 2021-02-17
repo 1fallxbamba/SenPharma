@@ -1,0 +1,40 @@
+.input-wrapper {
+
+    margin-top: 20%;
+    margin-left: 50px;
+    margin-right: 50px;
+
+    ion-item {
+        --background: transparent;
+
+        ion-input {
+            background: inherit;
+            text-align: center;
+            color: white;
+            font-size: 17px;
+        }
+    }
+
+}
+
+.result {
+
+    margin-top: 20px;
+    margin-left: 15px;
+    color: white;
+    font-weight: 500;
+
+    em {
+        font-style: normal;
+
+        span {
+            color: cyan;
+            font-size: 20px;
+        }
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+}

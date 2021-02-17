@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar class="ion-bg-main">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Informations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-bg-main">
+
+  <div class="result-wrapper">
+
+    <ion-card *ngIf="Pharmacy">
+      <ion-card-header>
+        <ion-card-title style="font-weight: 600;" class="ion-bold">{{Pharmacy.p_Name}}</ion-card-title>
+        <ion-card-subtitle *ngIf="Pharmacy.p_Status == 'Ouverte'" class="label-open">
+          {{Pharmacy.p_Status}}
+        </ion-card-subtitle>
+        <ion-card-subtitle *ngIf="Pharmacy.p_Status == 'Fermée'" class="label-closed">
+          {{Pharmacy.p_Status}}
+        </ion-card-subtitle>
+        <ion-card-subtitle *ngIf="Pharmacy.p_Status == 'En garde'" class="label-guard">
+          {{Pharmacy.p_Status}}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content class="ion-text-center">
+        <em>
+          <ion-icon slot="start" name="pin"></ion-icon> {{Pharmacy.p_Location}}
+        </em>
+        <br />
+        <em *ngIf="Pharmacy.p_Status == 'Ouverte'">
+          <div class="label-closed">
+            <ion-icon slot="start" name="lock-closed-outline"> </ion-icon>
+            Ferme à <span class="label-closed"> {{Pharmacy.p_Close}}:00 </span>
+          </div>
+        </em>
+  
+        <em *ngIf="Pharmacy.p_Status == 'Fermée'">
+          <div class="label-open">
+            <ion-icon slot="start" name="time-outline"> </ion-icon>
+            Ouvre à <span> {{Pharmacy.p_Open}}:00 </span>
+          </div>
+        </em>
+  
+        <em *ngIf="Pharmacy.p_Status == 'En garde'" class="label-guard">
+          <div class="label-closed">
+            <ion-icon slot="start" name="lock-closed-outline"> </ion-icon>
+            Ferme à <span class="label-closed"> {{Pharmacy.p_Close}}:00 </span>
+          </div>
+        </em>
+      </ion-card-content>
+      <ion-footer class="ion-text-center">
+        <ion-button
+          href="https://www.google.com/maps?q={{Pharmacy.p_Name}}"
+          fill="clear"
+          color="tertiary">
+          <ion-icon slot="start" name="navigate-outline"></ion-icon>
+          Localiser
+        </ion-button>
+        <ion-button fill="clear" (click)="call(Pharmacy.p_Number)">
+          <ion-icon slot="start" name="call-outline"></ion-icon>
+          Appeler
+        </ion-button>
+      </ion-footer>
+    </ion-card>
+
+  </div>
+
+</ion-content>
